@@ -1,6 +1,7 @@
 # Pomodoro Timer (Python / Windows)
 
 Десктопное приложение Pomodoro-таймера для Windows, написанное на Python с использованием:
+
 - Tkinter + ttkbootstrap (UI)
 - градиентного фона
 - системных уведомлений Windows (winotify)
@@ -19,10 +20,8 @@ PomadoroTimer/
 ├─ README.md
 └─ .venv/ (виртуальное окружение)
 
-
-Копировать код
-
 ### Назначение файлов
+
 - `pomodoro.py` — основной код приложения
 - `bitcoin_astronaut.png` — иконка **внутри приложения** (окно, уведомления)
 - `bitcoin_astronaut.ico` — иконка **самого exe-файла**
@@ -32,7 +31,7 @@ PomadoroTimer/
 
 ## 🧰 Требования
 
-- Windows 10 / 11  
+- Windows 10 / 11
 - Python (3.14)
 - PowerShell или терминал PyCharm
 
@@ -52,43 +51,39 @@ pip install ttkbootstrap pyinstaller winotify
 Поэтому в коде используется функция:
 
 
-Копировать код
 def resource_path(relative: str) -> str:
     import sys, os
     base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base, relative)
-Использование:
 
 
-Копировать код
 tk.PhotoImage(file=resource_path("bitcoin_astronaut.png"))
 И в winotify:
 
 
-Копировать код
 icon=resource_path("bitcoin_astronaut.png")
 🏗️ Сборка приложения в .exe (релиз)
 1️⃣ Очистка старых сборок (рекомендуется всегда)
 powershell
-Копировать код
+
 Remove-Item -Recurse -Force .\build, .\dist -ErrorAction SilentlyContinue
 Remove-Item .\Pomodoro.spec -ErrorAction SilentlyContinue
 2️⃣ Сборка релизной версии (без консоли)
 powershell
-Копировать код
+
 pyinstaller --onefile --windowed --name PomodoroTimer `
   --icon .\bitcoin_astronaut.ico `
   --add-data "bitcoin_astronaut.png;." `
   pomodoro.py
 После успешной сборки готовый файл будет здесь:
 
-Копировать код
+
 dist\PomodoroTimer.exe
 🐞 Сборка для отладки (с консолью)
 Если нужно увидеть ошибки или логи:
 
 powershell
-Копировать код
+
 Remove-Item -Recurse -Force .\build, .\dist -ErrorAction SilentlyContinue
 Remove-Item .\Pomodoro.spec -ErrorAction SilentlyContinue
 
@@ -98,7 +93,7 @@ pyinstaller --onefile --name PomodoroTimerDebug `
   pomodoro.py
 Запускать:
 
-Копировать код
+
 dist\PomodoroTimerDebug.exe
 🖼️ Иконки: важные правила
 Иконка окна / уведомлений → PNG
@@ -162,7 +157,7 @@ PNG не находится в exe
 Проект готов к дальнейшему развитию.
 
 
-Копировать код
+
 
 ---
 
